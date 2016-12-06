@@ -9,6 +9,10 @@ Airport.prototype.land = function(plane){
 }
 
 Airport.prototype.taxi = function(plane){
-  plane.takeOff();
-  return this.planes.pop(plane);
+  if (this.isStormy) {
+    throw new Error("Can't take off it's stormy");
+  } else {
+    plane.takeOff();
+    return this.planes.pop(plane);
+  }
 }

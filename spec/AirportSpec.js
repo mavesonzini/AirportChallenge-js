@@ -42,12 +42,17 @@ describe("Airport", function() {
 
   describe("weather", function(){
 
+    beforeEach(function(){
+      airport.land(plane);
+    });
+
     it("should be initialized with weather", function(){
       expect(airport.isStormy).toEqual(false);
     });
 
-    // it("should prevent take off when weather is stormy", function(){
-    //   expect(airport.)
-    // })
+    it("should prevent take off when weather is stormy", function(){
+      spyOn(airport, 'isStormy').and.returnValue(true);
+      expect(function(){airport.taxi(plane); }).toThrowError("Can't take off it's stormy");
+    });
   });
 });
