@@ -14,3 +14,11 @@ Airport.prototype.takeOffPlane = function(plane){
   this.planes.pop(plane);
   plane.takeOff();
 }
+
+Airport.prototype.isFull = function(){
+  if (this.planes.length === this.capacity) {
+    return true;
+  } else {
+    return false;
+  };
+}

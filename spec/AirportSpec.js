@@ -24,17 +24,23 @@ describe("Airport creation", function(){
 
 });
 
-describe("Airport methods", function(){
+describe("Landing", function(){
 
   beforeEach(function(){
-    airport = new Airport();
+    airport = new Airport(1);
     plane = new Plane();
+    plane2 = new Plane();
   });
 
   it("can instruct a plane to land", function(){
     airport.landPlane(plane);
     expect(airport.planes).toEqual(jasmine.arrayContaining([plane]));
   });
+
+  // it("can't land a plane if there is no capacity", function(){
+  //   airport.landPlane(plane);
+  //   expect(airport.landPlane(plane2)).toThrowError("Not enough space to land");
+  // });
 
 });
 
@@ -49,6 +55,20 @@ describe("Taking off", function(){
     airport.landPlane(plane);
     airport.takeOffPlane(plane);
     expect(airport.planes).not.toEqual( jasmine.arrayContaining([plane]) );
+  });
+
+});
+
+describe("Checking capacity", function(){
+
+  beforeEach(function(){
+    airport = new Airport(1);
+    plane = new Plane();
+  });
+
+  it("can detect when an airport is full", function(){
+    airport.landPlane(plane);
+    expect(airport.isFull()).toEqual(true);
   });
 
 });
