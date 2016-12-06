@@ -40,4 +40,14 @@ describe("Airport", function() {
     });
   });
 
+  describe("weather", function(){
+
+    it("should be initialized with weather", function(){
+      expect(airport.isStormy).toEqual(false);
+    });
+
+    // it("should prevent take off when weather is stormy", function(){
+    //   expect(airport.)
+    // })
+  });
 });

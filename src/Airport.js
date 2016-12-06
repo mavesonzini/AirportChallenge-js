@@ -1,5 +1,6 @@
 function Airport() {
   this.planes = [];
+  this.isStormy = false;
 }
 
 Airport.prototype.land = function(plane){
