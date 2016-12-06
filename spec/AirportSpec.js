@@ -40,7 +40,7 @@ describe("Airport", function() {
     });
   });
 
-  describe("weather", function(){
+  describe("isStormy", function(){
 
     beforeEach(function(){
       airport.land(plane);
@@ -54,5 +54,10 @@ describe("Airport", function() {
       spyOn(airport, 'isStormy').and.returnValue(true);
       expect(function(){airport.taxi(plane); }).toThrowError("Can't take off it's stormy");
     });
+
+    it("should prevent landing when weather is stormy", function(){
+      spyOn(airport, 'isStormy').and.returnValue(true);
+      expect(function(){airport.land(plane)}).toThrowError("Can't land it's stormy");
+    })
   });
 });
