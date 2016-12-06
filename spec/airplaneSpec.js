@@ -14,4 +14,9 @@ describe("Airplane", function(){
     expect(airplane.isFlying).toBeFalsy();
   });
 
+  it("should take off from airport", function() {
+    airplane.land();
+    airplane.takeOff();
+    expect(airplane.isFlying).toBeTruthy();
+  })
 });
