@@ -37,10 +37,10 @@ describe("Landing", function(){
     expect(airport.planes).toEqual(jasmine.arrayContaining([plane]));
   });
 
-  // it("can't land a plane if there is no capacity", function(){
-  //   airport.landPlane(plane);
-  //   expect(airport.landPlane(plane2)).toThrowError("Not enough space to land");
-  // });
+  it("can't land a plane if there is no capacity", function(){
+    airport.landPlane(plane);
+    expect(airport.landPlane(plane2)).toEqual("something really nasty");
+  });
 
 });
 

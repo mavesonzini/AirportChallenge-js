@@ -6,8 +6,13 @@ function Airport(capacity=20) {
 
 
 Airport.prototype.landPlane = function(plane){
-  this.planes.push(plane);
-  plane.land();
+  if(this.isFull()) {
+    return "something really nasty";
+  }
+  else {
+    this.planes.push(plane);
+    plane.land();
+  }
 }
 
 Airport.prototype.takeOffPlane = function(plane){
