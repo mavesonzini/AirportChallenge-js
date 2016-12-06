@@ -7,8 +7,10 @@ function Airport(capacity=20) {
 
 Airport.prototype.landPlane = function(plane){
   this.planes.push(plane);
+  plane.land();
 }
 
 Airport.prototype.takeOffPlane = function(plane){
   this.planes.pop(plane);
+  plane.takeOff();
 }
