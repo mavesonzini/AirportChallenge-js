@@ -1,7 +1,8 @@
 function Airport() {
-  planes = [];
+  this.planes = [];
 }
 
 Airport.prototype.land = function(plane){
-  planes.push(plane.land());
+  plane.land();
+  return this.planes.push( plane );
 }

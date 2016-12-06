@@ -8,5 +8,5 @@ describe("Airplane", function(){
   it("should land", function() {
     expect(airplane.land()).toBeTruthy();
   });
-  
+
 });
