@@ -26,13 +26,29 @@ describe("Airport creation", function(){
 
 describe("Airport methods", function(){
 
+  beforeEach(function(){
+    airport = new Airport();
+    plane = new Plane();
+  });
+
   it("can instruct a plane to land", function(){
-    airport.landPlane(plane)
+    airport.landPlane(plane);
     expect(airport.planes).toEqual(jasmine.arrayContaining([plane]));
   });
 
+});
+
+describe("Taking off", function(){
+
+  beforeEach(function(){
+    airport = new Airport();
+    plane = new Plane();
+  });
+
   it("can instruct a plane to take off", function(){
-    expect(airport.takeOffPlane(plane)).toEqual(true);
+    airport.landPlane(plane);
+    airport.takeOffPlane(plane);
+    expect(airport.planes).not.toEqual( jasmine.arrayContaining([plane]) );
   });
 
 });
