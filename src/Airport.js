@@ -4,7 +4,7 @@ function Airport(capacity=20) {
 }
 
 Airport.prototype.landPlane = function(plane){
-  return true;
+  this.planes.push(plane);
 }
 
 Airport.prototype.takeOffPlane = function(plane){

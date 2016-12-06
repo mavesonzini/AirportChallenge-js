@@ -27,7 +27,8 @@ describe("Airport creation", function(){
 describe("Airport methods", function(){
 
   it("can instruct a plane to land", function(){
-    expect(airport.landPlane(plane)).toEqual(true);
+    airport.landPlane(plane)
+    expect(airport.planes).toEqual(jasmine.arrayContaining([plane]));
   });
 
   it("can instruct a plane to take off", function(){
