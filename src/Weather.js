@@ -5,5 +5,7 @@ Weather.prototype.isStormy = function(){
 }
 
 Weather.prototype.randomize = function(){
-  return Math.random();
+    min = Math.ceil(1);
+    max = Math.floor(10);
+    return Math.floor(Math.random() * (max - min)) + min;
 }

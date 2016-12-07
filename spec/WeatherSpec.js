@@ -9,9 +9,9 @@ describe("Weather", function(){
     expect(weather.isStormy()).toEqual(true);
   });
 
-  it("returns a number between 0 and 1", function(){
-    expect(weather.randomize()).not.toBeLessThan(0);
-    expect(weather.randomize()).not.toBeMoreThan(1);
+  it("returns a number between 1 and 10", function(){
+    expect(weather.randomize()).not.toBeLessThan(1);
+    expect(weather.randomize()).not.toBeGreaterThan(10);
   });
 
 
