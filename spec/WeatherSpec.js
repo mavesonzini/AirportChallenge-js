@@ -2,6 +2,7 @@ describe("Weather", function(){
 
   beforeEach(function(){
     weather = new Weather();
+    spyOn(weather, 'randomize').and.returnValue(10)
   });
 
 
@@ -14,5 +15,7 @@ describe("Weather", function(){
     expect(weather.randomize()).not.toBeGreaterThan(10);
   });
 
-
+  it("will be stormy weather if random number is 10", function(){
+    expect(weather.isStormy()).toEqual(true);
+  });
 });

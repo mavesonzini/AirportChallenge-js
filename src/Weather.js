@@ -1,7 +1,11 @@
 function Weather() {}
 
 Weather.prototype.isStormy = function(){
-  return true;
+  if (weather.randomize() > 5){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 Weather.prototype.randomize = function(){
