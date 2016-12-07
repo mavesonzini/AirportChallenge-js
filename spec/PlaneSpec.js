@@ -46,6 +46,7 @@ describe("Landing a plane", function(){
   });
 
   it("calls the land method on plane when landing a plane", function(){
+    spyOn(weather, 'isStormy').and.returnValue(false);
     airport.landPlane(planeSpy);
     expect(planeSpy.land).toHaveBeenCalled();
   });
@@ -63,7 +64,8 @@ describe("Taking off a plane", function(){
     spyOn(planeSpy, "takeOff");
   });
 
-  it("calls the land method on plane when landing a plane", function(){
+  it("calls the takeOff method on plane when taking off a plane", function(){
+    spyOn(weather, 'isStormy').and.returnValue(false);
     airport.takeOffPlane(planeSpy);
     expect(planeSpy.takeOff).toHaveBeenCalled();
   });

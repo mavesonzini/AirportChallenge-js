@@ -49,12 +49,19 @@ describe("Taking off", function(){
   beforeEach(function(){
     airport = new Airport();
     plane = new Plane();
+    weather = new Weather();
   });
 
   it("can instruct a plane to take off", function(){
+    spyOn(weather,'isStormy').and.returnValue(false);
     airport.landPlane(plane);
     airport.takeOffPlane(plane);
     expect(airport.planes).not.toEqual( jasmine.arrayContaining([plane]) );
+  });
+
+  it("should prevent take off when weather is stormy", function(){
+    spyOn(weather,'isStormy').and.returnValue(true);
+    expect(function(){airport.takeOffPlane(plane)}).toThrowError("Can't take off! Weather is stormy");
   });
 
 });

@@ -12,6 +12,9 @@ Airport.prototype.landPlane = function(plane){
 }
 
 Airport.prototype.takeOffPlane = function(plane){
+  if(weather.isStormy() === true){
+    throw new Error("Can't take off! Weather is stormy");
+  }
   this.planes.pop(plane);
   plane.takeOff();
 }
